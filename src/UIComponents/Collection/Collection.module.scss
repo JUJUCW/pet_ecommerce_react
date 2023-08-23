@@ -1,0 +1,25 @@
+@use '/src/assets/styles/color' as color;
+@use '/src/assets/styles/mixin';
+.container {
+    .title {
+        @include mixin.font-setting(24px, 700, color.$Neutral_07);
+        line-height: 36px;
+    }
+    .photosContainer {
+        display: flex;
+        overflow-x: auto;
+        margin: 12px 0 24px 0;
+
+        img {
+            margin-right: 12px;
+            width: 284px;
+            height: 340px;
+            object-fit: contain;
+            flex: 0 0 auto;
+            border-radius: 10px;
+        }
+    }
+    .photosContainer::-webkit-scrollbar {
+        display: none;
+    }
+}

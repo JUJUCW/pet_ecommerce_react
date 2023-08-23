@@ -1,0 +1,43 @@
+// .container {
+//     display: flex;
+
+//     nav {
+//         display: flex;
+//         margin-left: 0;
+//     }
+
+//     ol {
+//         display: flex;
+//         flex-direction: row;
+
+//         gap: 10px;
+//         margin: 9px 0 11px 0px;
+//     }
+//     a {
+//         color: #000;
+//     }
+// }
+
+nav {
+    display: flex;
+
+    a {
+        text-decoration: none;
+        .breadcrumb-not-active {
+            color: #cccccc;
+        }
+
+        .breadcrumb-active {
+            color: #000000;
+        }
+    }
+    span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        margin: 0 6px;
+        height: 24px;
+        width: 24px;
+    }
+}

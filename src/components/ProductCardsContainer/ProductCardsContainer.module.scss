@@ -1,0 +1,32 @@
+@use '/src/assets/styles/color' as color;
+@use '/src/assets/styles/mixin';
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    padding: 60px 0;
+
+    .titleContainer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 40px;
+        .text {
+            @include mixin.font-setting(16px, 400, #000);
+            line-height: 24px;
+        }
+        .title {
+            @include mixin.font-setting(24px, 700, color.$Primary);
+
+            text-transform: capitalize;
+            line-height: 36px;
+        }
+    }
+
+    .cardContainer {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        grid-gap: 20px;
+    }
+}

@@ -1,0 +1,95 @@
+@use '/src/assets/styles/color' as color;
+@use '/src/assets/styles/mixin';
+.container {
+    width: 1180px;
+    // padding: 0 130px;
+    margin: 0 auto;
+    .mainContainer {
+        border-radius: 20px;
+        border: 1px solid color.$Neutral_02;
+        background: color.$Neutral_01;
+        padding: 22px 20px;
+        display: flex;
+        gap: 34px;
+        .left {
+            .img {
+                width: 560px;
+                height: 476px;
+                object-fit: cover;
+                border-radius: 10px;
+                margin-bottom: 12px;
+            }
+            .imagesContainer {
+                width: 560px;
+                height: 94px;
+                display: flex;
+                overflow-x: auto;
+                .img_s {
+                    // height: 94px;
+                    width: 94px;
+                    object-fit: cover;
+                    border-radius: 6px;
+                    margin-right: 12px;
+
+                    &:hover {
+                        border: 3px solid color.$Secondary_60;
+                    }
+                }
+            }
+            .imagesContainer::-webkit-scrollbar {
+                display: none;
+            }
+
+            .socialMediaContainer {
+                width: 129px;
+                display: flex;
+                justify-content: space-between;
+                margin-top: 17px;
+                .share {
+                    margin-right: 21px;
+                    display: flex;
+                    align-items: center;
+                    img {
+                        margin-right: 8px;
+                    }
+                }
+                .socialMedia {
+                    margin-right: 18px;
+                }
+            }
+        }
+        .right {
+            display: flex;
+            flex-direction: column;
+            .poppyName {
+                margin-bottom: 18px;
+            }
+            .btn {
+                display: flex;
+                margin-bottom: 18px;
+                gap: 12px;
+            }
+        }
+    }
+}
+.titleContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 40px;
+    .text {
+        @include mixin.font-setting(16px, 400, #000);
+        line-height: 24px;
+
+    }
+    .title {
+        @include mixin.font-setting(24px, 700, color.$Primary);
+        text-transform: capitalize;
+        line-height: 36px;
+
+    }
+}
+.cardContainer {
+    display: flex;
+    margin-bottom: 80px;
+}

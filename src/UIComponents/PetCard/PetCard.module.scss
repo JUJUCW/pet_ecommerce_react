@@ -1,0 +1,71 @@
+@use '/src/assets/styles/color' as color;
+@use '/src/assets/styles/mixin';
+
+.noUnderline {
+    text-decoration: none;
+}
+.container {
+    width: 280px;
+    height: 378px;
+    border-radius: 12px;
+    padding: 8px 8px 0px 8px;
+    box-shadow: 0px 4px 28px -2px rgba(0, 0, 0, 0.08);
+    margin-bottom: 20px;
+    font-family: 'Questrial';
+
+    .img {
+        width: 264px;
+        height: 264px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+    .info {
+        // padding: 8px 8px 20px 8px;
+        // padding: 8px;
+        .petName {
+            margin-top: 16px;
+            line-height: 24px;
+            
+            @include mixin.font-setting(16px, 700, color.$Neutral_07);
+
+        }
+        .contentBox {
+            display: flex;
+            line-height: 18px;
+            @include mixin.font-setting(12px, 400, color.$Neutral_05);
+        }
+        .location{
+            margin-top: 0;
+            line-height: 24px;
+            @include mixin.font-setting(16px, 700, color.$Neutral_07);
+        }
+    }
+}
+p{
+    margin-bottom: 0;
+}
+@media screen and (max-width: 576px) {
+    .container {
+        width: 185px;
+        height: 301px;
+        padding: 8px;
+        margin: 0 8px 20px 8px;
+        // border: 1px solid #000;
+
+        .img {
+            width: 169px;
+            height: 169px;
+        }
+        .info {
+            // padding: 8px 8px 20px 8px;
+            .petName {
+                line-height: 20px;
+                @include mixin.font-setting(14px, 700, color.$Neutral_07);
+            }
+            .contentBox {
+                line-height: 18px;
+                @include mixin.font-setting(12px, 400, color.$Neutral_05);
+            }
+        }
+    }
+}

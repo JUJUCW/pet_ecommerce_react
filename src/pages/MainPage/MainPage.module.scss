@@ -1,0 +1,15 @@
+@use '/src/assets/styles/color' as color;
+@use '/src/assets/styles/mixin';
+
+
+.container{
+  /*box model*/
+    // height: 100vh;
+    // margin: 0 auto;
+    overflow: hidden;
+    /*display*/
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    // border: 1px solid #000;
+}

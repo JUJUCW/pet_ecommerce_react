@@ -1,0 +1,26 @@
+@use '/src/assets/styles/color' as color;
+@use '/src/assets/styles/mixin';
+
+    .poppyInfoItem {
+        display: flex;
+        align-items: center;
+        @include mixin.font-setting(14px, 400, color.$Neutral_05);
+        line-height: 20px;
+        border-bottom: 1px solid color.$Neutral_02;
+        padding: 8px 0;
+        .poppyInfoItemTitle {
+            display: flex;
+            align-items: center;
+            width: 194px;
+            height: 26px;
+            padding: 4px 11px 2px 11px;
+        }
+        .poppyInfoItemContent {
+            display: flex;
+            align-items: center;
+            width: 301px;
+            height: 26px;
+            padding: 4px 11px 2px 11px;
+        }
+    }
+

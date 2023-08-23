@@ -1,0 +1,89 @@
+@use '/src/assets/styles/color' as color;
+@use '/src/assets/styles/mixin';
+
+.button {
+    border: none;
+    border-radius: 57px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Questrial';
+}
+
+.btn_151 {
+    /*box model*/
+    width: 151px;
+    height: 44px;
+    @include mixin.font-setting(16px, 400, color.$Neutral_01);
+    background-color: color.$Primary;
+}
+.btn_151_t {
+    /*box model*/
+    width: 151px;
+    height: 44px;
+    border: 1.5px solid color.$Primary;
+    @include mixin.font-setting(14px, 400, color.$Primary);
+    background-color: transparent;
+}
+
+.btn_158 {
+    /*box model*/
+    width: 158px;
+    height: 48px;
+}
+.btn_158_t {
+    /*box model*/
+    width: 158px;
+    height: 48px;
+    border: 1.5px solid color.$Primary;
+    @include mixin.font-setting(16px, 400, color.$Neutral_05);
+    background-color: transparent;
+}
+.btn_163 {
+    /*box model*/
+    width: 163px;
+    height: 48px;
+    @include mixin.font-setting(16px, 400, color.$Neutral_01);
+    background-color: color.$Primary;
+}
+
+.btn_196 {
+    line-height: 24px;
+    width: 196px;
+    height: 44px;
+    @include mixin.font-setting(16px, 400, color.$Neutral_01);
+    background-color: color.$Primary;
+    // transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: color.$Primary_40;
+    }
+    &:focus {
+        background-color: color.$Primary_60;
+    }
+    &:active {
+        background-color: color.$Primary_80;
+    }
+}
+.btn_196_t {
+    line-height: 24px;
+    width: 161px;
+    height: 44px;
+    border: 1.5px solid color.$Primary;
+    @include mixin.font-setting(16px, 400, color.$Primary);
+    background-color: transparent;
+    // transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: color.$Primary;
+        color: color.$Neutral_01;
+    }
+    &:focus {
+        background-color: color.$Primary_60;
+    }
+    &:active {
+        background-color: color.$Primary_80;
+        color: color.$Neutral_01;
+    }
+}

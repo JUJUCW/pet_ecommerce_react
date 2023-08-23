@@ -1,0 +1,14 @@
+@use '/src/assets/styles/color' as color;
+@use '/src/assets/styles/mixin';
+.container{
+  background-color: color.$Neutral_01;
+  padding: 0 130px;
+  margin: 0 auto;
+  max-width: 1440px;
+}
+
+@media screen and (max-width: 991px) {
+    .container {
+        padding: 0 16px;
+    }
+}

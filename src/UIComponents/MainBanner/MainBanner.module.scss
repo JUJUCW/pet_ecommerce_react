@@ -1,0 +1,67 @@
+@use '/src/assets/styles/color' as color;
+@use '/src/assets/styles/mixin';
+.container {
+    height: 378px;
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 auto;
+    background: color.$Primary;
+    border-radius: 20px;
+    position: relative;
+    width: 1180px;
+
+
+    .left {
+        // padding: 36px 0 0 0px;
+        position: absolute;
+        left: 20px;
+        top: 36px;
+        // border: 1px solid #fff;
+    }
+    .right {
+        padding: 64px 85px 0 0;
+
+        .lightBox {
+            position: absolute;
+            background-color: color.$Secondary_40;
+            width: 782px;
+            height: 635px;
+            border-radius: 99px;
+            transform: rotate(25.23deg);
+            flex-shrink: 0;
+            left: 506px;
+            top: -220px;
+        }
+        .title {
+            display: flex;
+            justify-content: flex-end;
+            @include mixin.font-setting(52px, 700, color.$Neutral_01);
+            line-height: 68px;
+        }
+        .subtitle {
+            display: flex;
+            justify-content: flex-end;
+            @include mixin.font-setting(36px, 400, color.$Neutral_01);
+            line-height: 54px;
+            margin-bottom: 8px;
+        }
+        .text {
+            width: 394px;
+            display: flex;
+            // justify-content: flex-end;
+            text-align: right;
+            margin-bottom: 24px;
+            @include mixin.font-setting(12px, 400, color.$Neutral_01);
+            line-height: 18px;
+
+        }
+        .buttons {
+            display: flex;
+            justify-content: flex-end;
+
+            .viewIntro {
+                border: 1px solid #000;
+            }
+        }
+    }
+}
