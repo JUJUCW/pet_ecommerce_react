@@ -25,7 +25,7 @@ export default function Search({ className, placeholder }) {
         try {
             // const response = await fetch(`${baseURL}/dogs?title=${query}`);
             const response = await fetch(`${baseURL}/dogs`);
-            console.log(response);
+            // console.log(response);
             if (!response.ok) {
                 throw new Error('Something went wrong!');
             }
@@ -35,14 +35,14 @@ export default function Search({ className, placeholder }) {
             setIsLoading(false);
             const filteredData = data.filter((item) => item.title.toLowerCase().includes(query.toLowerCase()));
             setSearchItems(filteredData);
-            // console.log('filteredData', filteredData);
+            console.log('filteredData', filteredData);
         } catch (error) {
             console.error('Error:', error);
             setIsLoading(false);
         }
     };
-    console.log('searchItems', searchItems);
-    // const searchItems = searchItems[0];
+
+
 
     const onChangeSearch = (e) => {
         setIsLoading(true);
@@ -90,20 +90,48 @@ export default function Search({ className, placeholder }) {
                 {isVisible &&
                     query &&
                     (isLoading ? (
-                        <span className={styles.loading}>Loading...</span>
+                        <span className={styles.loading}>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                xmlnsXlink="http://www.w3.org/1999/xlink"
+                                width="200px"
+                                height="200px"
+                                viewBox="0 0 100 100"
+                                preserveAspectRatio="xMidYMid"
+                            >
+                                <circle
+                                    cx="50"
+                                    cy="50"
+                                    fill="none"
+                                    stroke="#003459"
+                                    strokeWidth="10"
+                                    r="35"
+                                    strokeDasharray="164.93361431346415 56.97787143782138"
+                                >
+                                    <animateTransform
+                                        attributeName="transform"
+                                        type="rotate"
+                                        repeatCount="indefinite"
+                                        dur="1s"
+                                        values="0 50 50;360 50 50"
+                                        keyTimes="0;1"
+                                    />
+                                </circle>
+                            </svg>
+                        </span>
                     ) : (
                         <div className={styles.dropdown}>
                             <ul className={styles.dropdownList}>
                                 {searchItems[0] ? (
-                                    searchItems.slice(0, 4).map(() => (
+                                    searchItems.slice(0, 4).map((item) => (
                                         <SearchItem
-                                            key={searchItems[0]._id}
+                                            key={item._id}
                                             // SKU={searchItems.SKU}
-                                            title={searchItems[0].title}
-                                            gene={searchItems[0].gene}
-                                            age={searchItems[0].age}
-                                            location={searchItems[0].location}
-                                            images={searchItems[0].images}
+                                            title={item.title}
+                                            gene={item.gene}
+                                            age={item.age}
+                                            location={item.location}
+                                            images={item.images}
                                         />
                                     ))
                                 ) : (
@@ -112,7 +140,7 @@ export default function Search({ className, placeholder }) {
                             </ul>
                             {searchItems.length > 4 && (
                                 // <Link to={`/dogs/search=${query}`}>
-                                <a href="/node_modules" className={styles.seeAll}>
+                                <a href="/" className={styles.seeAll}>
                                     See all...
                                 </a>
                                 // </Link>
