@@ -3,6 +3,7 @@ import { apiHelper } from 'utils/helper';
 export const getAllDogs = async () => {
     try {
         const { data } = await apiHelper.get('/dogs');
+        console.log('data', data)
         return data;
     } catch (error) {
         console.error(error);

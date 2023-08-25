@@ -1,6 +1,6 @@
 import Button from 'UIComponents/Button/Button';
 import styles from './HeaderMainContainer.module.scss';
-import img from 'assets/images/header_img.png';
+// import img from 'assets/images/header_img.png';
 import playCircle from 'assets/icons/play_circle.png';
 export default function HeaderMainContainer() {
     return (

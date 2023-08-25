@@ -19,7 +19,7 @@ export default function PetCardContainer() {
                 }
                 if (data) {
                     setPetCards(data);
-                    // console.log('data', (data));
+
                 }
             } catch (error) {
                 console.log(error);

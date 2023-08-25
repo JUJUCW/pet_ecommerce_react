@@ -9,7 +9,7 @@ import { baseURL } from 'utils/helper';
 export default function Search({ className, placeholder }) {
     const navigate = useNavigate();
     const [query, setQuery] = useState('');
-    const [searchItems, setSearchItems] = useState([]);
+    const [searchItems, setSearchItems] = useState('');
     const [isVisible, setIsVisible] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
 
@@ -23,23 +23,27 @@ export default function Search({ className, placeholder }) {
     const fetchSearchedItems = async (query) => {
         setIsLoading(true);
         try {
-            const response = await fetch(`${baseURL}/dogs?title=${query}`);
+            // const response = await fetch(`${baseURL}/dogs?title=${query}`);
+            const response = await fetch(`${baseURL}/dogs`);
             console.log(response);
             if (!response.ok) {
                 throw new Error('Something went wrong!');
             }
             const data = await response.json();
             // console.log('query', query);
-            setSearchItems(data);
+
             setIsLoading(false);
-            console.log('data', data)
+            const filteredData = data.filter((item) => item.title.toLowerCase().includes(query.toLowerCase()));
+            setSearchItems(filteredData);
+            // console.log('filteredData', filteredData);
         } catch (error) {
             console.error('Error:', error);
             setIsLoading(false);
         }
     };
+    console.log('searchItems', searchItems);
+    // const searchItems = searchItems[0];
 
-    
     const onChangeSearch = (e) => {
         setIsLoading(true);
         setQuery(e.target.value);
@@ -90,38 +94,28 @@ export default function Search({ className, placeholder }) {
                     ) : (
                         <div className={styles.dropdown}>
                             <ul className={styles.dropdownList}>
-                                {searchItems ? (
-                                    // searchItems.slice(0, 4).map((item) =>
-                                    <>
+                                {searchItems[0] ? (
+                                    searchItems.slice(0, 4).map(() => (
                                         <SearchItem
-                                            key={searchItems._id}
+                                            key={searchItems[0]._id}
                                             // SKU={searchItems.SKU}
-                                            title={searchItems.title}
-                                            gene={searchItems.gene}
-                                            age={searchItems.age}
-                                            location={searchItems.location}
-                                            images={searchItems.images}
+                                            title={searchItems[0].title}
+                                            gene={searchItems[0].gene}
+                                            age={searchItems[0].age}
+                                            location={searchItems[0].location}
+                                            images={searchItems[0].images}
                                         />
-                                        {/* <SearchItem
-                                            key={searchItems._id}
-                                            // SKU={searchItems.SKU}
-                                            title={searchItems.title}
-                                            gene={searchItems.gene}
-                                            age={searchItems.age}
-                                            location={searchItems.location}
-                                        /> */}
-                                    </>
+                                    ))
                                 ) : (
-                                    // )
                                     <p className={styles.notFound}>There is nothing found for your query...</p>
                                 )}
                             </ul>
                             {searchItems.length > 4 && (
-                                <Link to={`/dogs/search=${query}`}>
-                                    <a href="/node_modules" className={styles.seeAll}>
-                                        See all...
-                                    </a>
-                                </Link>
+                                // <Link to={`/dogs/search=${query}`}>
+                                <a href="/node_modules" className={styles.seeAll}>
+                                    See all...
+                                </a>
+                                // </Link>
                             )}
                         </div>
                     ))}{' '}
