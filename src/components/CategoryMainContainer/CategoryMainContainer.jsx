@@ -49,13 +49,7 @@ export default function CategoryMainContainer() {
                     </div>
                     <div className={styles.cards}>
                         <PetCard />
-                        <PetCard />
-                        <PetCard />
-                        <PetCard />
-                        <PetCard />
-                        <PetCard />
-                        <PetCard />
-                        <PetCard />
+
                     </div>
                     <Pagination />
                 </div>

@@ -62,7 +62,9 @@
             display: flex;
             flex-direction: column;
             .poppyName {
+                font-family: 'Questrial';
                 margin-bottom: 18px;
+                @include mixin.font-setting(24px, 700, color.$Primary);
             }
             .btn {
                 display: flex;
@@ -73,6 +75,7 @@
     }
 }
 .titleContainer {
+    font-family: 'Questrial';
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,16 +83,15 @@
     .text {
         @include mixin.font-setting(16px, 400, #000);
         line-height: 24px;
-
     }
     .title {
         @include mixin.font-setting(24px, 700, color.$Primary);
         text-transform: capitalize;
         line-height: 36px;
-
     }
 }
 .cardContainer {
     display: flex;
     margin-bottom: 80px;
+    overflow-x: auto;
 }

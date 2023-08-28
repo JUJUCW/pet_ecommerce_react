@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // import { useParams } from 'react-router-dom';
-import Collection from 'UIComponents/Collection/Collection';
+// import Collection from 'UIComponents/Collection/Collection';
 import styles from './ProductMainContainer.module.scss';
 import PetCard from 'UIComponents/PetCard/PetCard';
 import fb from 'assets/icons/facebook_g.svg';
@@ -9,13 +9,14 @@ import ig from 'assets/icons/instagram_g.svg';
 import yt from 'assets/icons/youtube_g.svg';
 import share from 'assets/icons/share.svg';
 
-import Breadcrumb from 'UIComponents/Breadcrumb/Breadcrumb';
+// import Breadcrumb from 'UIComponents/Breadcrumb/Breadcrumb';
 import Button from 'UIComponents/Button/Button';
-import { getDog } from 'api/dog';
+import { getAllDogs, getDog } from 'api/dog';
 import PoppyInfoItem from 'UIComponents/PoppyInfoItem/PoppyInfoItem';
 
 export default function ProductMainContainer() {
     const [poppyProfile, setPoppyProfile] = useState([]);
+    const [petCards, setPetCards] = useState({});
     const firstImage = poppyProfile?.images?.[0];
     const [selectedImage, setSelectedImage] = useState(firstImage);
     const urlParams = new URLSearchParams(window.location.search);
@@ -45,6 +46,23 @@ export default function ProductMainContainer() {
         handleImageClick(firstImage);
     }, [SKU, firstImage]);
 
+    useEffect(() => {
+        const getPetCard = async () => {
+            try {
+                const data = await getAllDogs();
+                if (data.status === 'error') {
+                    console.log(data.message);
+                    return;
+                }
+                if (data) {
+                    setPetCards(data);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        getPetCard();
+    }, []);
     return (
         <div className={styles.container}>
             <div className={styles.mainContainer}>
@@ -74,11 +92,11 @@ export default function ProductMainContainer() {
                     </div>
                 </div>
                 <div className={styles.right}>
-                    <Breadcrumb />
+                    {/* <Breadcrumb /> */}
                     <div className={styles.poppyName}>{poppyProfile.title}</div>
                     <div className={styles.btn}>
                         <Button title="Adopt me" size="btn_151" />
-                        <Button title="Chat with Us" size="btn_151_t" />
+                        {/* <Button title="Chat with Us" size="btn_151_t" /> */}
                     </div>
                     <div className={styles.poppyInfo}>
                         {
@@ -93,16 +111,27 @@ export default function ProductMainContainer() {
                     </div>
                 </div>
             </div>
-            <Collection />
+            {/* <Collection /> */}
             <div className={styles.titleContainer}>
                 <p className={styles.text}>Who's new?</p>
                 <p className={styles.title}>See more of them</p>
             </div>
             <div className={styles.cardContainer}>
-                <PetCard />
-                <PetCard />
-                <PetCard />
-                <PetCard />
+                {Object.keys(petCards).map((key) => {
+                    const { SKU, gene, age, title, images, location } = petCards[key];
+
+                    return (
+                        <PetCard
+                            key={key}
+                            SKU={SKU}
+                            gene={gene}
+                            age={age}
+                            title={title}
+                            images={images}
+                            location={location}
+                        />
+                    );
+                })}
             </div>
         </div>
     );

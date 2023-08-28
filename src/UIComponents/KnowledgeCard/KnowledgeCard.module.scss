@@ -22,16 +22,17 @@
             @include mixin.font-setting(16px, 700, color.$Neutral_07);
         }
         .tag {
+            font-family: Questrial;
             display: flex;
             align-items: center;
             padding: 2px 10px;
             margin-bottom: 8px;
-            width: 89px;
+            width: 95px;
             height: 20px;
             background-color: color.$BlueSea;
             border-radius: 28px;
             line-height: 16px;
-            @include mixin.font-setting(10px, 400, color.$Neutral_01);
+            @include mixin.font-setting(11px, 400, color.$Neutral_01);
         }
         .content {
             display: flex;
@@ -47,4 +48,7 @@
             white-space: pre-wrap; /* let the text wrap preserving spaces */
         }
     }
+}
+p {
+    font-family: Questrial;
 }
