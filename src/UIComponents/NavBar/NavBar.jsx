@@ -22,7 +22,7 @@ export default function NavBar() {
                 >
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <Link to="/main">
+                <Link to="/home">
                     <img src={logo} alt="logo" className={styles.img} />
                 </Link>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
