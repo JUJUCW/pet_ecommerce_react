@@ -1,5 +1,17 @@
 @use '/src/assets/styles/color' as color;
 @use '/src/assets/styles/_mixin.scss';
-.titleClasses {
-    @include mixin.font-setting(16px, 400, color.$Primary);
+
+.link {
+    text-decoration: none;
+
+    .titleClasses {
+        font-family: Questrial;
+        @include mixin.font-setting(16px, 400, color.$Primary);
+        &:hover {
+            color: color.$Primary;
+        }
+    }
+}
+a {
+    text-decoration: none;
 }

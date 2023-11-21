@@ -42,8 +42,6 @@ export default function Search({ className, placeholder }) {
         }
     };
 
-
-
     const onChangeSearch = (e) => {
         setIsLoading(true);
         setQuery(e.target.value);
@@ -72,21 +70,21 @@ export default function Search({ className, placeholder }) {
     };
     return (
         <>
-            <div className={styles.container}>
-                <div
-                    className={`${styles.searchBox} ${className ? className : ''}`}
-                    onClick={onClickSearch}
-                    ref={searchRef}
-                >
-                    <img src={search} alt="search" className={styles.searchIcon} />
-                    <input
-                        type="text"
-                        className={styles.searchInput}
-                        placeholder={placeholder ? placeholder : 'Search something here!'}
-                        ref={inputRef}
-                        onChange={onChangeSearch}
-                    />
-                </div>
+            {/* <div className={styles.container}> */}
+            <div
+                className={`${styles.searchBox} ${className ? className : ''}`}
+                onClick={onClickSearch}
+                ref={searchRef}
+            >
+                <img src={search} alt="search" className={styles.searchIcon} />
+                <input
+                    type="text"
+                    className={styles.searchInput}
+                    placeholder={placeholder ? placeholder : 'Search something here!'}
+                    ref={inputRef}
+                    onChange={onChangeSearch}
+                />
+                {/* </div> */}
                 {isVisible &&
                     query &&
                     (isLoading ? (

@@ -2,8 +2,27 @@ import PetCard from 'UIComponents/PetCard/PetCard';
 import styles from './CategoryMainContainer.module.scss';
 import Button from 'UIComponents/Button/Button';
 import Pagination from 'UIComponents/Pagination/Pagination';
+import { useEffect, useMemo, useState } from 'react';
+import { getAllDogs } from 'api/dog';
+let itemsPerPage = 10;
 
 export default function CategoryMainContainer() {
+    const [petCards, setPetCards] = useState([]);
+    const [currentPage, setCurrentPage] = useState(1);
+    // const currentTableData = useMemo(() => {
+    //     const firstPageIndex = (currentPage - 1) * itemsPerPage;
+    //     const lastPageIndex = firstPageIndex + itemsPerPage;
+    //     return petCards.slice(firstPageIndex, lastPageIndex);
+    // }, [currentPage]);
+    //
+    // // const [filterPetCards, setFilterPetCards] = useState([]);
+    // const indexOfLastItem = currentPage * itemsPerPage;
+    // const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    // // const currentItems = filterPetCards.slice(indexOfFirstItem, indexOfLastItem);
+
+    // const handlePageChange = (newPage) => {
+    //     setCurrentPage(newPage);
+    // };
     const Checkbox = ({ id, label }) => (
         <div className="form-check">
             <input className="form-check-input" type="checkbox" value="" id={id} />
@@ -12,6 +31,27 @@ export default function CategoryMainContainer() {
             </label>
         </div>
     );
+
+    useEffect(() => {
+        const getPetCard = async () => {
+            try {
+                const data = await getAllDogs();
+                if (data.status === 'error') {
+                    console.log(data.message);
+                    return;
+                }
+                if (data) {
+                    setPetCards(data);
+                }
+            } catch (error) {
+                console.error(error);
+            }
+        };
+        getPetCard();
+    }, []);
+
+    const currentItems = petCards.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
     return (
         <>
             <div className={styles.container}>
@@ -34,7 +74,7 @@ export default function CategoryMainContainer() {
                     {/* Size 篩選器*/}
                     <div className={styles.size}>
                         <h5 className={styles.filter}>Size</h5>
-                        {['Under 12 kg', '12-25 kg', '25+ kg'].map((size) => (
+                        {['Small', 'Medium', 'Big'].map((size) => (
                             <Checkbox key={size} id={size} label={size} />
                         ))}
                     </div>
@@ -42,16 +82,49 @@ export default function CategoryMainContainer() {
                 <div className={styles.cardContainer}>
                     <div className={styles.cardContainerHeader}>
                         <div className={styles.categoryTitle}>
-                            <h4 className={styles.filterTitle}>Small Dog</h4>
-                            <span className={styles.cardCount}>12 poppies</span>
+                            <h4 className={styles.filterTitle}>All Dogs</h4>
+                            <span className={styles.cardCount}>
+                                {/* {petCards.length} */}
+                                poppies
+                            </span>
                         </div>
                         <Button title="Sort by: popular " size="btn_163" />
                     </div>
                     <div className={styles.cards}>
-                        <PetCard />
-
+                        {currentItems.map((key) => {
+                            return (
+                                <PetCard
+                                    key={key._id}
+                                    SKU={key.SKU}
+                                    gene={key.gene}
+                                    age={key.age}
+                                    title={key.title}
+                                    images={key.images}
+                                    location={key.location}
+                                />
+                            );
+                        })}
+                        {/* {currentItems.map((petCard, index) => (
+                            <PetCard
+                                key={index}
+                                SKU={petCard.SKU}
+                                gene={petCard.gene}
+                                age={petCard.age}
+                                title={petCard.title}
+                                images={petCard.images}
+                                location={petCard.location}
+                            />
+                        ))} */}
                     </div>
-                    <Pagination />
+                    {/* <Pagination
+                        currentPage={currentPage}
+                        // totalItems={petCards.length}
+                        pageSize={itemsPerPage}
+                        onPageChange={(page) => setCurrentPage(page)}
+                        // totalPages={totalPages}
+                        // totalPages={Math.ceil(filterPetCards.length / itemsPerPage)}
+                        // onPageChange={handlePageChange}
+                    /> */}
                 </div>
             </div>
         </>

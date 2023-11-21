@@ -2,11 +2,12 @@
 @use '/src/assets/styles/mixin';
 .container {
     display: flex;
-// flex-direction: column;
+    // flex-direction: column;
     max-width: 1200px;
     margin: 35px 130px 0;
     // justify-content: space-between;
     gap: 28px;
+    font-family: Questrial;
     .filterContainer {
         width: 280px;
         // border: 1px solid #000;
