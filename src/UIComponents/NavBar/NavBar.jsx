@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import NavItem from 'UIComponents/NavItem/NavItem';
 import styles from './NavBar.module.scss';
 import logo from 'assets/icons/logo.png';
+import cart from 'assets/icons/shopping-cart.png';
 // import Button from 'UIComponents/Button/Button';
 import Search from 'UIComponents/Search/Search';
 import { Link } from 'react-router-dom';
@@ -32,6 +33,9 @@ export default function NavBar() {
                     </div>
                 </div>
                 <Search />
+                <Link to="/cart">
+                <img src={cart} alt="cart" className={styles.cart}/>
+                </Link>
             </div>
         </nav>
     );
