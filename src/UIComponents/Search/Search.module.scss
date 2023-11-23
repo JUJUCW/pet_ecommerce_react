@@ -5,7 +5,7 @@
 .searchBox {
     // z-index: 1;
     background: color.$Neutral_01;
-    @include mixin.font-setting(14px, 400, color.$Neutral_04);
+    @include mixin.font-setting(16px, 400, color.$Neutral_04);
     position: relative;
     display: flex;
     align-items: center;
