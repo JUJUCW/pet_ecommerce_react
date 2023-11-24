@@ -5,8 +5,9 @@
     background-color: color.$Secondary_40;
     display: flex;
     flex-direction: column;
-    padding: 80px 130px 40px 130px;
+    padding: 80px 18vw 40px 18vw;
     border-radius: 40px 40px 0px 0px;
+    margin: 0 auto;
     .registerContainer {
         background-color: color.$Primary;
         border-radius: 16px;
@@ -14,43 +15,49 @@
         flex-direction: row;
         justify-content: space-between;
         padding: 32px;
-        width: 1180px;
-        margin: 0 auto;
+        width: 100%;
+        max-width: 1180px;
+        // margin: 0 auto;
         .left {
             @include mixin.font-setting(24px, 400, color.$Neutral_01);
-            width: 389px;
+            width: 30%;
             font-family: 'Questrial';
             text-transform: capitalize;
             line-height: 36px;
             letter-spacing: 1px;
         }
         .right {
+            width: 70%;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            align-items: flex-end;
+            // align-items: flex-end;
             // gap: 16px;
             padding: 12px;
             background-color: color.$Neutral_01;
             border: 1px solid #000;
             height: 72px;
             border-radius: 14px;
+            .inputContainer {
 
-            .input {
-                width: 452px;
-                height: 48px;
-                padding: 14px 28px;
-                margin-right: 12px;
-                border-radius: 8px;
-                border: 1px solid color.$Neutral_04;
-            }
-            .button {
-                width: 163px;
-                height: 48px;
-                @include mixin.font-setting(16px, 400, color.$Neutral_01);
-                font-family: 'Questrial';
-                border-radius: 8px;
-                background-color: color.$Primary;
+                // width: 615px;
+
+                .input {
+                    width: 65%;
+                    height: 48px;
+                    // padding: 14px 28px;
+                    margin-right: 35px;
+                    border-radius: 8px;
+                    border: 1px solid color.$Neutral_04;
+                }
+                .button {
+                    width: 25%;
+                    height: 48px;
+                    @include mixin.font-setting(16px, 400, color.$Neutral_01);
+                    font-family: 'Questrial';
+                    border-radius: 8px;
+                    background-color: color.$Primary;
+                }
             }
         }
     }
@@ -86,5 +93,18 @@
         // border: 1px solid #000;
         // margin: 40  auto  0 auto;
         @include mixin.font-setting(14px, 400, color.$Neutral_05);
+    }
+}
+@media screen and (max-width: 600px) {
+    /* 在螢幕寬度小於600px時的樣式 */
+    .registerContainer {
+        flex-direction: column; /* 或者使用 grid-template-columns: 1fr; */
+        // .left {
+        //     width: 40%; /* 40% 寬度的標題 */
+        // }
+
+        // .right {
+        //     width: 60%; /* 60% 寬度的輸入框 */
+        // }
     }
 }
