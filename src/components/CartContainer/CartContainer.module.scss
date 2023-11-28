@@ -1,0 +1,28 @@
+@use '/src/assets/styles/color' as color;
+@use '/src/assets/styles/mixin';
+
+.container {
+    display: inline-block;
+    padding: 0 20vw;
+    width: 100%;
+    margin: 50px auto;
+    // border: 1px solid #000;
+    // margin: 50px auto;
+    .mainContainer {
+        display: flex;
+        justify-content: space-between;
+        // border: 1px solid #000;
+
+        .left{
+            width: 50%;
+        }
+        .right{
+            border: 1px solid #000;
+            width: 40%;
+        }
+    }
+}
+h2{
+    margin-bottom: 48px;
+    @include mixin.font-setting(42px, 700, color.$Primary);
+}
