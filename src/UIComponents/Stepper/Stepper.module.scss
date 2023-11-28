@@ -1,0 +1,123 @@
+/*  Mobile RWD  */
+
+.container {
+    border: 1px solid cyan;
+    margin-bottom: 64px ;
+
+    display: flex; //讓 step 橫向排列
+
+    .step {
+        // border: 1px solid pink;
+        display: flex; //讓 circle, line 橫向排列
+        flex: 1; //讓每個 step分成三等份
+        position: relative;
+        text-align: center; //讓數字置中
+
+        // @include getStepNum(3);
+
+        &:nth-child(1) .stepLine {
+            border: 1px solid #000;
+            left: calc(32px + 32px);
+            right: calc(-50% + 16px + 32px);
+        }
+
+        &:nth-child(2) {
+            justify-content: center;
+
+            .stepLine {
+                left: calc(50% + 16px + 32px);
+                right: calc(-100% + 32px + 32px);
+            }
+        }
+
+        &:nth-child(3) {
+            justify-content: flex-end;
+        }
+
+        .stepCircle {
+            width: 32px;
+            height: 32px;
+            border: 1px solid #000;
+            color: #000;
+            border-radius: 50%;
+            font-weight: 700;
+            line-height: 32px;
+        }
+
+        .stepLabel {
+            display: none;
+        }
+
+        .stepLine {
+            height: 2px;
+            background-color: #000;
+            position: absolute;
+            top: 50%;
+        }
+
+        &.active,
+        &.checked {
+            .stepCircle {
+                border-color: #000;
+                background: #000;
+            }
+
+            .stepLine {
+                background: #000;
+            }
+        }
+
+        &.checked {
+            .stepCircle::after {
+                content: '\2714';
+                color: aliceblue;
+            }
+        }
+    }
+}
+
+/*  >= 375px RWD  */
+@media screen and (min-width: 375px) {
+    .container {
+        margin-top: 0;
+        grid-column: 1 / 7;
+        grid-row: 1 / 2;
+
+        .step {
+            align-items: center;
+
+            &:nth-child(1) .stepLine {
+                left: calc(24px + 0.5vw + 64px + 32px);
+                right: calc(-50% + (24px + 0.5vw + 64px) / 2 + 32px);
+            }
+
+            &:nth-child(2) {
+                .stepLine {
+                    left: calc(50% + (24px + 0.5vw + 64px) / 2 + 32px);
+                    right: calc(-100% + 64px + 0.5vw + 24px + 32px);
+                }
+            }
+
+            .stepCircle {
+                width: 24px;
+
+                height: 24px;
+                font-size: 12px;
+                line-height: 24px;
+            }
+
+            .stepLabel {
+                display: block;
+                margin-left: 0.5vw;
+                color: #000;
+            }
+
+            &.active,
+            &.checked {
+                .stepLabel {
+                    color: #000;
+                }
+            }
+        }
+    }
+}
