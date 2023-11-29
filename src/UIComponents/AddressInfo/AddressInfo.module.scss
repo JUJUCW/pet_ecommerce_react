@@ -1,6 +1,10 @@
 @use '/src/assets/styles/color' as color;
 @use '/src/assets/styles/mixin';
+.container {
+    display: none;
+}
 .personalInfo {
+    // display: none;
     .nameContainer {
         display: flex;
 
