@@ -87,3 +87,44 @@
         color: color.$Neutral_01;
     }
 }
+.btn_158_p {
+    line-height: 24px;
+    width: 158px;
+    height: 44px;
+    border: 1.5px solid color.$Primary;
+    @include mixin.font-setting(16px, 400, color.$Primary);
+    background-color: transparent;
+    // transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: color.$Primary;
+        color: color.$Neutral_01;
+    }
+    &:focus {
+        background-color: color.$Primary_60;
+    }
+    &:active {
+        background-color: color.$Primary_80;
+        color: color.$Neutral_01;
+    }
+}
+
+.btn_158_n {
+    line-height: 24px;
+    width: 158px;
+    height: 44px;
+    border: 1.5px solid color.$Primary;
+    @include mixin.font-setting(16px, 400, color.$Neutral_01);
+    background-color: color.$Primary;
+    // transition: all 0.3s ease-in-out;
+
+    &:hover {
+        background-color: color.$Primary_80;
+    }
+    &:focus {
+        background-color: color.$Primary_60;
+    }
+    &:active {
+        background-color: color.$Primary_80;
+    }
+}

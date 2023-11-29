@@ -1,0 +1,7 @@
+@use '/src/assets/styles/color' as color;
+@use '/src/assets/styles/mixin';
+
+.container{
+  display: flex;
+  justify-content: space-between;
+}

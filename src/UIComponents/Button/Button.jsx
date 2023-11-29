@@ -10,6 +10,8 @@ export default function Button({ title, onClick, size }) {
         [styles.btn_163]: size === 'btn_163',
         [styles.btn_196]: size === 'btn_196',
         [styles.btn_196_t]: size === 'btn_196_t',
+        [styles.btn_158_n]: size === 'btn_158_n',
+        [styles.btn_158_p]: size === 'btn_158_p',
     });
     return (
         <button className={buttonClassName} onClick={onClick}>
