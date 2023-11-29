@@ -13,8 +13,9 @@ export default function CartContainer() {
                 <div className={styles.left}>
                     {/* <Stepper /> */}
                     <AddressInfo />
-                    <PaymentInfo />
                     <ShippingInfo />
+                    <PaymentInfo />
+                    
                 </div>
                 <div className={styles.right}>
                     <ShoppingCart />
