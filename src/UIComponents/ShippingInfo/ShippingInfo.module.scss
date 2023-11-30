@@ -237,7 +237,7 @@
     margin-bottom: 144px;
     font-family: 'Questrial';
     .shipMethod > div {
-      font-family: 'Questrial';
+        font-family: 'Questrial';
         border: 1px solid color.$Neutral_04;
         display: flex;
         width: 80%;
@@ -245,7 +245,7 @@
         margin-top: 24px;
         border-radius: 4px;
         position: relative;
-        
+
         .feeText {
             display: flex;
             // border: 1px solid #000;
@@ -262,6 +262,8 @@
 input {
     width: 20px;
     margin: auto 20px;
+    cursor: pointer;
+
     // margin: 20px;
     :checked {
         border: 1px solid #000;

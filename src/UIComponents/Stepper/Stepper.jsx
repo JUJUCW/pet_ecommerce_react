@@ -10,7 +10,7 @@ export default function Stepper() {
                 }`}
             >
                 <div className={styles.stepCircle}></div>
-                <div className={styles.stepLabel}>寄送地址</div>
+                <div className={styles.stepLabel}>Shipping address</div>
                 <div className={styles.stepLine}></div>
             </div>
             <div
@@ -19,12 +19,16 @@ export default function Stepper() {
                 }`}
             >
                 <div className={styles.stepCircle}></div>
-                <div className={styles.stepLabel}>運送方式</div>
+                <div className={styles.stepLabel}>Shipping Method</div>
                 <div className={styles.stepLine}></div>
             </div>
-            <div className={`${styles.step} ${currentStep === 3 ? styles.active : ''} ${currentStep === 4 ? styles.checked : ''}`}>
+            <div
+                className={`${styles.step} ${currentStep === 3 ? styles.active : ''} ${
+                    currentStep === 4 ? styles.checked : ''
+                }`}
+            >
                 <div className={styles.stepCircle}></div>
-                <div className={styles.stepLabel}>付款條件</div>
+                <div className={styles.stepLabel}>Payment method</div>
             </div>
         </section>
     );

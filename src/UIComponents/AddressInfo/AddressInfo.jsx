@@ -24,29 +24,29 @@ export default function AddressInfo() {
     return (
         <>
             <div className={styles.container}>
-                <Stepper />
-                <h3>寄送地址</h3>
+                {/* <Stepper /> */}
+                <h3>Shipping Address</h3>
                 <div className={styles.personalInfo}>
                     <div className={styles.nameContainer}>
                         <div className={styles.salutation}>
-                            <label htmlFor="salutation">稱謂</label>
+                            <label htmlFor="salutation">Salutation</label>
                             <select
                                 name="salutation"
                                 id="salutation"
                                 value={form.salutation}
                                 onChange={(e) => handleInputChange('salutation', e.target.value)}
                             >
-                                <option value="先生">先生</option>
-                                <option value="小姐">小姐</option>
+                                <option value="先生">Mr.</option>
+                                <option value="小姐">Ms.</option>
                             </select>
                         </div>
                         <div className={styles.name}>
-                            <label htmlFor="name">姓名</label>
+                            <label htmlFor="name">Full Name</label>
                             <input
                                 type="text"
                                 name="name"
                                 id="name"
-                                placeholder="請輸入姓名"
+                                placeholder="Enter Name Here"
                                 value={form.name}
                                 onChange={(e) => setForm({ ...form, name: e.target.value })}
                             />
@@ -55,12 +55,12 @@ export default function AddressInfo() {
 
                     <div className={styles.contact}>
                         <div className={styles.phone}>
-                            <label htmlFor="phone">電話</label>
+                            <label htmlFor="phone">Phone</label>
                             <input
                                 type="text"
                                 name="phone"
                                 id="phone"
-                                placeholder="請輸入電話"
+                                placeholder="Enter Phone Here"
                                 value={form.phone}
                                 onChange={(e) => handleInputChange('name', e.target.value)}
                             />
@@ -71,7 +71,7 @@ export default function AddressInfo() {
                                 type="text"
                                 name="email"
                                 id="email"
-                                placeholder="請輸入Email"
+                                placeholder="Enter Email Here"
                                 value={form.email}
                                 onChange={(e) => setForm({ ...form, email: e.target.value })}
                             />
@@ -79,7 +79,7 @@ export default function AddressInfo() {
                     </div>
                     <div className={styles.city}>
                         <div className={styles.cityContainer}>
-                            <label htmlFor="city">縣市</label>
+                            <label htmlFor="city">City</label>
                             <select
                                 name="city"
                                 id="city"
@@ -93,12 +93,12 @@ export default function AddressInfo() {
                             </select>
                         </div>
                         <div className={styles.address}>
-                            <label htmlFor="email">地址</label>
+                            <label htmlFor="email">Address</label>
                             <input
                                 type="text"
                                 name="address"
                                 id="address"
-                                placeholder="請輸入地址"
+                                placeholder="Enter Address Here"
                                 value={form.address}
                                 onChange={(e) => setForm({ ...form, address: e.target.value })}
                             />

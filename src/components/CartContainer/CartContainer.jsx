@@ -8,7 +8,7 @@ import ShoppingCart from 'UIComponents/ShoppingCart/ShoppingCart';
 export default function CartContainer() {
     return (
         <div className={styles.container}>
-            <h2>結帳</h2>
+            <h2>CHECKOUT</h2>
             <div className={styles.mainContainer}>
                 <div className={styles.left}>
                     {/* <Stepper /> */}

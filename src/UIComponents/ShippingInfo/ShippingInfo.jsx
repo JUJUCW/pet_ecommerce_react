@@ -14,18 +14,18 @@ const dummyShippingMethod = [
     {
         id: 1,
         name: 'standard',
-        text: '標準運送',
-        description: '約 3~7 個工作天',
-        feeText: '免費',
+        text: 'Standard',
+        description: 'Approximately 3 to 7 business days.',
+        feeText: 'FREE',
         fee: 0,
         checked: true,
     },
     {
         id: 2,
         name: 'dhl',
-        text: 'DHL 貨運',
-        description: '48 小時內送達',
-        feeText: '$500',
+        text: 'DHL',
+        description: 'Delivered within 48 hours.',
+        feeText: '$ 500',
         fee: 500,
         checked: false,
     },
@@ -74,9 +74,9 @@ export default function ShippingInfo() {
         <>
             <div className={styles.container}>
                 {/* Main Stepper */}
-                <Stepper currentStep={currentStep} />
+                {/* <Stepper currentStep={currentStep} /> */}
 
-                <h3 className={styles.partTitle}>運送方式</h3>
+                <h3 className={styles.partTitle}>Shipping Method</h3>
                 <div className={styles.shipMethod} id="shipping__method">
                     {shippingMethods.map((shippingMethod) => (
                         <div key={shippingMethod.id} className={`styles.shipContainer ${shippingMethod.name}`}>
@@ -95,7 +95,7 @@ export default function ShippingInfo() {
                     ))}
                 </div>
             </div>
-            <NextButton />
+            {/* <NextButton /> */}
         </>
     );
 }
