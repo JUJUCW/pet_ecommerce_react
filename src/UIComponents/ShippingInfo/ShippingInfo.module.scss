@@ -234,7 +234,7 @@
 .container {
     // border: 1px solid #000;
     min-width: 540px;
-    margin-bottom: 144px;
+    margin: 72px 0;
     font-family: 'Questrial';
     .shipMethod > div {
         font-family: 'Questrial';
@@ -245,6 +245,16 @@
         margin-top: 24px;
         border-radius: 4px;
         position: relative;
+        input {
+            width: 20px;
+            margin: auto 20px;
+            cursor: pointer;
+
+            // margin: 20px;
+            :checked {
+                border: 1px solid #000;
+            }
+        }
 
         .feeText {
             display: flex;
@@ -256,17 +266,6 @@
             top: 50%;
             transform: translateY(-50%);
         }
-    }
-}
-
-input {
-    width: 20px;
-    margin: auto 20px;
-    cursor: pointer;
-
-    // margin: 20px;
-    :checked {
-        border: 1px solid #000;
     }
 }
 
