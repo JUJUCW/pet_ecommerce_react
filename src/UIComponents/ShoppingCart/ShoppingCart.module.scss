@@ -1,0 +1,100 @@
+@use '/src/assets/styles/color' as color;
+@use '/src/assets/styles/mixin';
+.container {
+    width: 100%;
+    padding: 20px;
+    h3 {
+        color: color.$Primary;
+    }
+    .mainContainer {
+        // width: 100%;
+        margin: 24px;
+
+        .productItem {
+            display: flex;
+            margin-bottom: 32px;
+            // border: 1px solid color.$Neutral_04;
+            .image {
+                width: 100px;
+                height: 100px;
+                border-radius: 5px;
+                object-fit: cover;
+                box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+                margin-right: 10px;
+            }
+            .productItemContent {
+                padding: 10px;
+                width: 60%;
+
+                .productItemTitle {
+                    @include mixin.font-setting(18px, 700, color.$Primary);
+                    margin-bottom: 10px;
+                }
+                .productItemPrice {
+                    display: flex;
+                    flex-direction: column;
+                    @include mixin.font-setting(16px, 700, color.$Primary);
+                }
+                .productItemQuantity {
+                    display: flex;
+                    margin-left: 32px;
+                    justify-content: flex-end;
+                    .addButton,
+                    .minusButton {
+                        // border: 1px solid color.$Neutral_03;
+                        width: 20px;
+                        height: 20px;
+                        margin: 0 10px;
+                        border-radius: 50%;
+                        background-color: color.$Primary; /* 設定背景顏色 */
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease; /* 加入過渡效果 */
+
+                        @include mixin.font-setting(20px, 400, color.$Neutral_01);
+                        line-height: 20px;
+
+                        &:hover {
+                            background-color: #2980b9; /* 滑鼠懸停時的背景顏色 */
+                        }
+
+                        // .horizontalLine,
+                        // .verticalLine {
+                        //     width: 18px;
+                        //     height: 2px;
+                        //     background-color: #fff; /* 設定橫線和豎線的顏色 */
+                        // }
+
+                        // .verticalLine {
+                        //     transform: rotate(90deg); /* 使豎線變成橫線 */
+                        // }
+                    }
+                }
+            }
+        }
+        .priceWrapper {
+            .priceContainer {
+                .deliverFeeWrapper {
+                    display: flex;
+                    border-top: 1px solid color.$Neutral_03;
+                    font-family: 'Questrial', sans-serif;
+                    @include mixin.font-setting(20px, 700, color.$Primary);
+                    margin: 24px 0;
+                    padding: 15px 0;
+                    justify-content: space-between;
+                }
+            }
+
+            .priceTotal {
+                display: flex;
+                justify-content: flex-end;
+                @include mixin.font-setting(20px, 700, color.$Primary);
+                margin: 24px 0;
+                border-top: 1px solid color.$Neutral_03;
+                padding: 15px 0;
+            }
+        }
+    }
+}
