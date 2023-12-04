@@ -79,7 +79,7 @@ export default function ShippingInfo() {
                 <h3 className={styles.partTitle}>Shipping Method</h3>
                 <div className={styles.shipMethod} id="shipping__method">
                     {shippingMethods.map((shippingMethod) => (
-                        <div key={shippingMethod.id} className={`styles.shipContainer ${shippingMethod.name}`}>
+                        <div key={shippingMethod.id} className={`${styles.shipContainer} ${shippingMethod.name}`}>
                             <input
                                 type="radio"
                                 name="shipment"

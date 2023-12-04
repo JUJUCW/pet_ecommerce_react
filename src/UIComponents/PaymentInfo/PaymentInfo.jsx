@@ -11,8 +11,8 @@ export default function PaymentInfo() {
                         <label htmlFor="creditCard">Credit Card</label>
                     </div>
                     <div className={styles.cardInfo}>
-                        <div className={styles.cardNumber}>
-                            <label htmlFor="cardNumber">Card Name</label>
+                        <div className={styles.cardName}>
+                            <label htmlFor="cardName">Card Name</label>
                             <input type="text" id="cardName" name="cardName" placeholder="Credit Card Name" />
                         </div>
                         <div className={styles.cardNumber}>
@@ -21,13 +21,11 @@ export default function PaymentInfo() {
                         </div>
                         <div className={styles.cardExpiration}>
                             <label htmlFor="cardExpiration">Expiration Date</label>
-                <input type="text" id="cardExpiration" name="cardExpiration"
-                placeholder='MM/YY'/>
+                            <input type="text" id="cardExpiration" name="cardExpiration" placeholder="MM/YY" />
                         </div>
                         <div className={styles.cardCvv}>
                             <label htmlFor="cardCvv">CVV</label>
-                <input type="text" id="cardCvv" name="cardCvv"
-                placeholder='123'/>
+                            <input type="text" id="cardCvv" name="cardCvv" placeholder="123" />
                         </div>
                     </div>
                 </div>

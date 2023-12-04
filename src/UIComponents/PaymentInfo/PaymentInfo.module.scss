@@ -1,39 +1,55 @@
+@use '/src/assets/styles/color' as color;
+@use '/src/assets/styles/mixin';
 .container {
+    h3 {
+        color: color.$Primary;
+    }
     min-width: 540px;
 
     .paymentInfo {
         display: flex;
         min-width: 540px;
-        width: 100%;
+
         margin-top: 20px;
         .paymentMethod {
+            // width: 100%;
             flex: 1;
-            border: 1px solid #e5e5e5;
+            // border: 1px solid #e5e5e5;
             .creditCard {
                 display: flex;
                 margin-bottom: 20px;
 
-                input{
-                  width: 20px;
-                margin-right: 20px;
+                input {
+                    width: 20px;
+                    margin-right: 20px;
                 }
             }
             .paypal {
                 display: flex;
-                margin-bottom: 20px;  
-                input{
-                  width: 20px;
-                  margin-right: 20px;
+                margin-bottom: 24px;
+                input {
+                    width: 20px;
+                    margin-right: 20px;
                 }
             }
             .cardInfo {
                 width: 100%;
                 // border: 1px solid cyan;
-                input{
-                  width: 80%;
-                  
+                padding-left: 24px;
+                > div {
+                    padding-bottom: 20px; /* 設定底部 padding，可根據需求調整數值 */
+
+                    input {
+                        width: 80%;
+                        // margin-top: 10px;
+                    }
                 }
             }
         }
     }
+}
+label {
+    display: flex;
+    margin: 10px 0;
+    @include mixin.font-setting(16px, 700, color.$Primary);
 }
