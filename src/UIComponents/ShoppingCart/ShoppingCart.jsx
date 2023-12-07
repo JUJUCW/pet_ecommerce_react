@@ -55,7 +55,8 @@ export default function ShoppingCart() {
     ];
     const [quantities, setQuantities] = useState(dummyData.map(() => 1));
     const [perPrice, setPerPrice] = useState(dummyData.map((item) => item.price));
-    const [deliverFee, setDeliverFee] = useState(500);
+    const [deliverFee, setDeliverFee] = useState(0);
+    const [shippingMethod, setShippingMethod] = useState([]);
     const handleDecrease = (index) => {
         if (quantities[index] > 1) {
             const newQuantities = [...quantities];
@@ -74,6 +75,12 @@ export default function ShoppingCart() {
         setQuantities(newQuantities);
         setPerPrice(newPerPrice);
     };
+
+    const updateShippingInfo = (newShippingMethod, newDeliverFee) => {
+        setShippingMethod(newShippingMethod);
+        setDeliverFee(newDeliverFee);
+    };
+
     const calculateTotalPrice = () => {
         const totalPrice = perPrice.reduce((acc, price) => acc + price, 0);
 
@@ -93,7 +100,15 @@ export default function ShoppingCart() {
                                 <div className={styles.productItemContent}>
                                     <div className={styles.productItemTitle}>{item.title}</div>
                                     <div className={styles.productItemPrice}>
-                                        <div className={styles.price}> ${perPrice[index]}</div>
+                                        <div className={styles.price}>
+                                            
+                                            {perPrice[index].toLocaleString('en-US', {
+                                                style: 'currency',
+                                                currency: 'USD',
+                                                maximumFractionDigits: 0,
+                                                minimumFractionDigits: 0,
+                                            })}
+                                        </div>
                                         <div className={styles.productItemQuantity}>
                                             <div
                                                 className={styles.minusButton}
@@ -122,9 +137,10 @@ export default function ShoppingCart() {
                         <div className={styles.deliverFeeWrapper}>
                             <p>Deliver Fee</p>
                             <div className={styles.deliverFee}>
+                            {/* <ShippingInfo /> */}
                                 {deliverFee.toLocaleString('en-US', {
                                     style: 'currency',
-                                    currency: 'NTD',
+                                    currency: 'USD',
                                     maximumFractionDigits: 0,
                                     minimumFractionDigits: 0,
                                 })}
@@ -133,7 +149,7 @@ export default function ShoppingCart() {
                         <div className={styles.priceTotal}>
                             {calculateTotalPrice().toLocaleString('en-US', {
                                 style: 'currency',
-                                currency: 'NTD',
+                                currency: 'USD',
                                 maximumFractionDigits: 0,
                                 minimumFractionDigits: 0,
                             })}
